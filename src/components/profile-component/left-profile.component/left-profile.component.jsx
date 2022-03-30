@@ -13,7 +13,7 @@ class LeftProfile extends Component {
 
 const JobTitleAnimation = () => {
   return (
-    <div className="text-3xl font-bold text-gray-700 h-12 overflow-hidden">
+    <div className="text-3xl font-bold text-slate-900 h-12 overflow-hidden dark:text-slate-400">
       <div className="h-full animate-move">
         <h2 className="py-1">Software Engineer</h2>
         <h2 className="py-1">Web Developer</h2>

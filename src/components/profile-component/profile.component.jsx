@@ -6,15 +6,16 @@ import "./profile.component.css";
 class Profile extends Component {
   render() {
     return (
-      <Fragment>
+      <div className="dark:bg-slate-900">
         <div className="shape h-full w-full bg-sky-500 absolute">asdws</div>
-        <div className="flex bg-grey-100 h-screen">
+        <div className="flex bg-grey-100 h-screen dark:bg-slate-900">
           <LeftProfile />
           <RightProfile />
         </div>
-      </Fragment>
+      </div>
     )
   }
 }
+
 
 export default Profile;
