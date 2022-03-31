@@ -6,7 +6,7 @@ function App() {
   return (
     <Fragment>
       <div>
-        <Profile/>
+        <Profile />
       </div>
     </Fragment>
   );
