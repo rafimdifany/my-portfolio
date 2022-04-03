@@ -2,7 +2,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: 'class',
   theme: {
-    extend: {
+    colors : {
+      primary: '#14b8a6',
+      secondary: '#0f172a',
+      white: '#f1f5f9'
+    },
+    extend: { 
       animation: {
         'move' : 'move 5s ease-in-out infinite alternate',
         'left-to-right' : 'left-to-right 0.5s ease-in-out',
@@ -12,8 +17,8 @@ module.exports = {
       keyframes: {
         'move' : {
           '10%' : {transform: 'translateY(0)'},
-          '50%' : {transform: 'translateY(-3rem)'},
-          '100%' : {transform: 'translateY(-6rem)'}
+          '50%' : {transform: 'translateY(-32px)'},
+          '100%' : {transform: 'translateY(-66px)'}
         },
         'left-to-right' : {
           '0%' : {transform: 'translateX(-3rem)', opacity:'0'},
