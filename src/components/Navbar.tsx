@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar() {
     return (
         <nav className="bg-gray-800 p-4">
@@ -5,7 +7,7 @@ export default function Navbar() {
             <div className="text-white text-lg font-semibold">Rafi</div>
             <ul className="flex space-x-4">
                 <li>
-                    <a href="/" className="text-gray-300 hover:text-white"><span className="text-purple-500">#</span>home</a>
+                    <Link href="/" className="text-gray-300 hover:text-white"><span className="text-purple-500">#</span>home</Link>
                 </li>
                 <li>
                     <a href="/portfolio" className="text-gray-300 hover:text-white"><span
