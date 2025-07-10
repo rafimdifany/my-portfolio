@@ -1,14 +1,39 @@
+"use client";
+
 import Link from "next/link";
+import {useEffect, useState} from "react";
 
 export default function Navbar() {
+    const [activeSection, setActiveSection] = useState("");
 
-    const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ["home", "works", "about", "contacts"]
+
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if(element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll)
+        handleScroll()
+
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
+
 
     const navItems = [
-        { label: "home", href: "/", icon: "#", active: currentPath === "/" },
-        { label: "works", href: "/portfolio", icon: "#", active: currentPath === "/portfolio" },
-        { label: "about-me", href: "/about", icon: "#", active: currentPath === "/about" },
-        { label: "contacts", href: "/contact", icon: "#", active: currentPath === "/contact" }
+        { label: "home", href: "#home", icon: "#", active: activeSection === "home" },
+        { label: "works", href: "#works", icon: "#", active: activeSection === "works" },
+        { label: "about-me", href: "#about", icon: "#", active: activeSection === "about" },
+        { label: "contacts", href: "#contacts", icon: "#", active: activeSection === "contacts" }
     ]
 
     return (
@@ -21,6 +46,7 @@ export default function Navbar() {
                         <Link
                             href={item.href}
                             className={`text-white hover:text-gray-300 ${item.active ? "font-bold" : ""}`}
+                            onClick={() => setActiveSection(item.href.substring(1))}
                         >
                             <span className={`text-purple-500`}>#</span>{item.label}
                         </Link>
