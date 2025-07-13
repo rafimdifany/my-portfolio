@@ -39,7 +39,7 @@ export default function Navbar() {
     return (
         <nav className="p-4 fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="container mx-auto flex justify-between items-center">
-            <div className="text-white text-lg font-semibold">Rafi</div>
+            <div className="text-white text-lg font-semibold"><span className={`text-purple-500 font-bold`}>{`</>Rafi`}</span> Mufadhal Difany</div>
             <ul className="flex space-x-5">
                 {navItems.map((item) => (
                     <li key={item.label}>

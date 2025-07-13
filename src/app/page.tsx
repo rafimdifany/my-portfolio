@@ -1,4 +1,5 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/ui/Navbar";
+import Hero from "@/components/sections/Hero";
 
 export default function Home() {
     return (
@@ -7,12 +8,7 @@ export default function Home() {
             <Navbar />
 
             <main className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
-                <section
-                    id="home"
-                    className="h-screen snap-start flex items-center justify-center"
-                >
-                    <h1 className="text-4xl">Home Section</h1>
-                </section>
+                <Hero/>
                 <section
                     id="works"
                     className="h-screen snap-start flex items-center justify-center"
