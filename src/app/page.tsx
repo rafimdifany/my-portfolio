@@ -4,11 +4,13 @@ import Hero from "@/components/sections/Hero";
 export default function Home() {
     return (
         <div className="h-screen">
-            {/* Fixed navbar will overlay content */}
             <Navbar />
 
-            <main className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
-                <Hero/>
+            <main
+                id="scroll-root"
+                className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+            >
+                <Hero /> {/* Pastikan ada id="home" */}
                 <section
                     id="works"
                     className="h-screen snap-start flex items-center justify-center"
