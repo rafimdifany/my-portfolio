@@ -1,5 +1,6 @@
 import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
 
 export default function Home() {
     return (
@@ -10,18 +11,13 @@ export default function Home() {
                 id="scroll-root"
                 className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
             >
-                <Hero /> {/* Pastikan ada id="home" */}
+                <Hero/>
+                <About/>
                 <section
                     id="works"
                     className="h-screen snap-start flex items-center justify-center"
                 >
                     <h1 className="text-4xl">Works Section</h1>
-                </section>
-                <section
-                    id="about"
-                    className="h-screen snap-start flex items-center justify-center"
-                >
-                    <h1 className="text-4xl">About Section</h1>
                 </section>
                 <section
                     id="contacts"

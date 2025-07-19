@@ -7,7 +7,7 @@ export default function Navbar() {
     const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
-        const sections = ["home", "works", "about", "contacts"].map((id) =>
+        const sections = ["home", "about", "works", "contacts"].map((id) =>
             document.getElementById(id)
         );
 
@@ -40,8 +40,8 @@ export default function Navbar() {
 
     const navItems = [
         { label: "home", href: "#home", active: activeSection === "home" },
-        { label: "works", href: "#works", active: activeSection === "works" },
         { label: "about-me", href: "#about", active: activeSection === "about" },
+        { label: "works", href: "#works", active: activeSection === "works" },
         { label: "contacts", href: "#contacts", active: activeSection === "contacts" },
     ];
 
