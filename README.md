@@ -199,19 +199,11 @@ Indonesia
 
 ## 📝 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) if present, or copy the template below:
-
-```text
-MIT License
-
-Copyright (c) 2025 Rafi Mufadhal Difany
-
-Permission is hereby granted and free of charge
-```
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE)
 
 ---
 
-## 🌍 Bahasa Indonesia (Ringkas)
+## 🌍 Bahasa Indonesia
 
 <details>
 <summary>Klik untuk versi Bahasa Indonesia</summary>
