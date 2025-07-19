@@ -1,6 +1,7 @@
 import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Works from "@/components/sections/Works";
 
 export default function Home() {
     return (
@@ -13,12 +14,7 @@ export default function Home() {
             >
                 <Hero/>
                 <About/>
-                <section
-                    id="works"
-                    className="h-screen snap-start flex items-center justify-center"
-                >
-                    <h1 className="text-4xl">Works Section</h1>
-                </section>
+                <Works/>
                 <section
                     id="contacts"
                     className="h-screen snap-start flex items-center justify-center"
