@@ -24,11 +24,11 @@ export default function About() {
 
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h3 className="text-2xl font-semibold text-purple-500 mb-4">Hello, I'm Rafi!</h3>
+                            <h3 className="text-2xl font-semibold text-purple-500 mb-4">Hello, I&#39;m Rafi!</h3>
                             <p className="text-foreground mb-6 leading-relaxed">
-                                I'm a passionate full-stack developer with over 3 years of experience building
+                                I&#39;m a passionate full-stack developer with over 3 years of experience building
                                 web applications. I love turning complex problems into simple, beautiful designs.
-                                When I'm not coding, you can find me exploring new technologies or playing video games.
+                                When I&#39;m not coding, you can find me exploring new technologies or playing video games.
                             </p>
 
                             <div className="flex items-center gap-2 mb-6">
