@@ -2,6 +2,7 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/compo
 import {ExternalLink, Github} from "lucide-react";
 import {Button} from "@/components/ui/Button";
 import {Badge} from "@/components/ui/Badge";
+import Image from "next/image";
 
 
 export default function Works() {
@@ -36,7 +37,7 @@ export default function Works() {
     return (
         <section
             id="works"
-            className="h-screen snap-start flex items-center justify-center bg-gray-800 text-white"
+            className="h-screen snap-start flex items-center justify-center text-foreground"
         >
             <div className="container mx-auto px-6">
                 <div className="max-w-6xl mx-auto">
@@ -47,9 +48,11 @@ export default function Works() {
                             <Card key={index}
                                   className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                                 <div className="aspect-video bg-muted rounded-t-lg overflow-hidden">
-                                    <img
+                                    <Image
                                         src={work.image}
                                         alt={work.title}
+                                        width={300}
+                                        height={200}
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>

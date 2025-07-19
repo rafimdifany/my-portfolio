@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import {Toaster} from "@/components/ui/Toaster";
 
 
 const firaCode = Fira_Code({
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${firaCode.variable} antialiased`}
       >
         {children}
+      <Toaster/>
       </body>
     </html>
   );

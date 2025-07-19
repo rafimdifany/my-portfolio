@@ -2,6 +2,7 @@ import Navbar from "@/components/ui/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Works from "@/components/sections/Works";
+import Contacts from "@/components/sections/Contacts";
 
 export default function Home() {
     return (
@@ -15,12 +16,7 @@ export default function Home() {
                 <Hero/>
                 <About/>
                 <Works/>
-                <section
-                    id="contacts"
-                    className="h-screen snap-start flex items-center justify-center"
-                >
-                    <h1 className="text-4xl">Contacts Section</h1>
-                </section>
+                <Contacts/>
             </main>
         </div>
     );
