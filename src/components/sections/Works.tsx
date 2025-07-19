@@ -37,13 +37,13 @@ export default function Works() {
     return (
         <section
             id="works"
-            className="h-screen snap-start flex items-center justify-center text-foreground"
+            className="min-h-screen snap-start flex items-center justify-center text-foreground py-16 md:py-0"
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 sm:px-6 pt-16 md:pt-0">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-12">Featured Projects</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12">Featured Projects</h2>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {works.map((work, index) => (
                             <Card key={index}
                                   className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -71,16 +71,16 @@ export default function Works() {
                                         ))}
                                     </div>
 
-                                    <div className="flex gap-2">
-                                        <Button size="sm" variant="outline" asChild>
+                                    <div className="flex flex-wrap gap-2">
+                                        <Button size="sm" variant="outline" asChild className="w-full sm:w-auto">
                                             <a href={work.github} target="_blank" rel="noopener noreferrer">
-                                                <Github className="w-4 h-4"/>
+                                                <Github className="w-4 h-4 mr-1"/>
                                                 Code
                                             </a>
                                         </Button>
-                                        <Button size="sm" asChild>
+                                        <Button size="sm" asChild className="w-full sm:w-auto">
                                             <a href={work.live} target="_blank" rel="noopener noreferrer">
-                                                <ExternalLink className="w-4 h-4"/>
+                                                <ExternalLink className="w-4 h-4 mr-1"/>
                                                 Live Demo
                                             </a>
                                         </Button>
