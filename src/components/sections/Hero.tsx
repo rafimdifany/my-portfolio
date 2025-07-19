@@ -3,7 +3,7 @@ import {ChevronDown} from "lucide-react";
 
 export default function Hero() {
     return (
-        <section id="home" className="min-h-screen snap-start flex items-center justify-center relative overflow-hidden py-16 md:py-0">
+        <section id="home" className="min-h-screen md:snap-start flex items-center justify-center relative overflow-hidden py-16 md:py-0">
             <div className="container mx-auto px-4 sm:px-6 relative z-10">
                 <div className="text-center max-w-4xl mx-auto">
                     <div className="mb-6 md:mb-8">

@@ -11,7 +11,7 @@ export default function Home() {
 
             <main
                 id="scroll-root"
-                className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
+                className="h-screen overflow-y-auto md:snap-y md:snap-mandatory scroll-smooth"
             >
                 <Hero/>
                 <About/>

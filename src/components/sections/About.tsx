@@ -16,7 +16,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="min-h-screen snap-start flex items-center justify-center text-foreground py-16 md:py-0"
+            className="min-h-screen md:snap-start flex items-center justify-center text-foreground py-16 md:py-0"
         >
             <div className="container mx-auto px-4 sm:px-6 pt-16 md:pt-0">
                 <div className="max-w-5xl mx-auto">
