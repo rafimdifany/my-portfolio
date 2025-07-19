@@ -4,7 +4,7 @@ import About from "@/components/sections/About";
 
 export default function Home() {
     return (
-        <div className="h-screen">
+        <div className="h-screen bg-gray-900">
             <Navbar />
 
             <main

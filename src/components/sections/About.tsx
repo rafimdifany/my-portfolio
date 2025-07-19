@@ -16,7 +16,7 @@ export default function About() {
     return (
         <section
             id="about"
-            className="h-screen snap-start flex justify-center bg-gray-900 text-foreground "
+            className="h-screen snap-start flex justify-center text-foreground "
         >
             <div className="container mx-auto px-6 mt-30">
                 <div className="max-w-5xl mx-auto">
