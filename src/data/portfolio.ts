@@ -101,40 +101,20 @@ export type Project = {
   tech: string[];
   liveUrl: string;
   sourceUrl: string;
-  images: Array<{
-    id: string;
-    title: string;
-    description: string;
-    palette: string;
-  }>;
+  images: string;
 };
 
 export const projects: Project[] = [
   {
-    id: "signal-canvas",
-    title: "Signal Canvas",
+    id: "lunaris",
+    title: "Lunaris",
     description:
       "An adaptive analytics workspace for product teams to orchestrate experiments, manage cohorts, and narrate insights.",
     category: "Product",
-    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Supabase"],
-    liveUrl: "https://signal-canvas.com",
-    sourceUrl: "https://github.com/rafi-dev/signal-canvas",
-    images: [
-      {
-        id: "canvas-overview",
-        title: "Experiment Overview",
-        description:
-          "Story-driven dashboard with contextual metrics and motion-enhanced drilldowns.",
-        palette: "from-purple-500 via-sky-500 to-emerald-500",
-      },
-      {
-        id: "canvas-timeline",
-        title: "Research Timeline",
-        description:
-          "Timeline view with annotated milestones and team moments for playback.",
-        palette: "from-amber-400 via-rose-500 to-slate-900",
-      },
-    ],
+    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion", "Express JS", "monorepo"],
+    liveUrl: "https://lunaris.app",
+    sourceUrl: "https://github.com/rafimdifany/project-zoltraak",
+    images: "/images/screenshot/project-zoltraak-3.png",
   },
   {
     id: "neon-orbit",
@@ -145,22 +125,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "Three.js", "Tailwind", "Framer Motion"],
     liveUrl: "https://neonorbit.space",
     sourceUrl: "https://github.com/rafi-dev/neon-orbit",
-    images: [
-      {
-        id: "orbit-hero",
-        title: "Immersive Hero",
-        description:
-          "Parallax hero with volumetric glow and scroll-synced telemetry readouts.",
-        palette: "from-slate-900 via-indigo-800 to-cyan-500",
-      },
-      {
-        id: "orbit-showcase",
-        title: "Payload Showcase",
-        description:
-          "Modular showcase carousel with progressive disclosure and physics inspired motion.",
-        palette: "from-fuchsia-500 via-violet-500 to-blue-500",
-      },
-    ],
+    images: "",
   },
   {
     id: "atelier-ui",
@@ -171,22 +136,7 @@ export const projects: Project[] = [
     tech: ["React", "Tailwind", "Framer Motion", "Storybook"],
     liveUrl: "https://atelier-ui.dev",
     sourceUrl: "https://github.com/rafi-dev/atelier-ui",
-    images: [
-      {
-        id: "atelier-library",
-        title: "Component Library",
-        description:
-          "Composable primitives with a11y baked in and theme-aware animation tokens.",
-        palette: "from-rose-500 via-orange-400 to-yellow-300",
-      },
-      {
-        id: "atelier-tokens",
-        title: "Token Playground",
-        description:
-          "Live playground to inspect semantic tokens with instant preview on motion states.",
-        palette: "from-emerald-400 via-teal-500 to-slate-900",
-      },
-    ],
+    images: "",
   },
   {
     id: "relay-copilot",
@@ -197,22 +147,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "LangChain", "Tailwind", "Supabase", "Vercel AI"],
     liveUrl: "https://relaycopilot.ai",
     sourceUrl: "https://github.com/rafi-dev/relay-copilot",
-    images: [
-      {
-        id: "copilot-console",
-        title: "Console",
-        description:
-          "Incident heatmap with auto prioritization and conversational insights.",
-        palette: "from-indigo-400 via-blue-500 to-slate-950",
-      },
-      {
-        id: "copilot-chat",
-        title: "Guided Response",
-        description:
-          "Conversational agent with suggested actions and inline diff previews.",
-        palette: "from-cyan-500 via-sky-400 to-purple-600",
-      },
-    ],
+    images: "",
   },
   {
     id: "pulse-kit",
@@ -223,22 +158,7 @@ export const projects: Project[] = [
     tech: ["Node.js", "Next.js", "Turborepo", "Tailwind"],
     liveUrl: "https://pulsekit.dev",
     sourceUrl: "https://github.com/rafi-dev/pulse-kit",
-    images: [
-      {
-        id: "pulse-dashboard",
-        title: "Metrics Canvas",
-        description:
-          "Progressive disclosure of Lighthouse scores with snapshot comparisons.",
-        palette: "from-emerald-500 via-lime-400 to-slate-900",
-      },
-      {
-        id: "pulse-cli",
-        title: "CLI Experience",
-        description:
-          "Command line interface with tasteful ANSI theming and actionable recommendations.",
-        palette: "from-slate-900 via-zinc-800 to-sky-400",
-      },
-    ],
+    images: "",
   },
   {
     id: "atlas-notes",
@@ -249,22 +169,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "Convex", "Tailwind", "Framer Motion"],
     liveUrl: "https://atlasnotes.app",
     sourceUrl: "https://github.com/rafi-dev/atlas-notes",
-    images: [
-      {
-        id: "atlas-editor",
-        title: "Editor Canvas",
-        description:
-          "Collaborative editor with live avatars, real-time cursors, and presence transitions.",
-        palette: "from-blue-500 via-sky-500 to-emerald-500",
-      },
-      {
-        id: "atlas-search",
-        title: "Semantic Search",
-        description:
-          "Contextual search overlay with command palette UX and keyboard driven interactions.",
-        palette: "from-slate-900 via-indigo-900 to-purple-500",
-      },
-    ],
+    images: "",
   },
 ];
 

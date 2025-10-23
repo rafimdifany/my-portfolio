@@ -1,10 +1,13 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { techStack } from "@/data/portfolio";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/Tooltip";
 
 const TechStackSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="tech-stack"
@@ -29,12 +32,12 @@ const TechStackSection = () => {
           {techStack.map((category, categoryIndex) => (
             <motion.div
               key={category.id}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{
-                duration: 0.6,
-                delay: categoryIndex * 0.1,
+                duration: shouldReduceMotion ? 0.2 : 0.6,
+                delay: shouldReduceMotion ? 0 : categoryIndex * 0.12,
                 ease: [0.25, 1, 0.5, 1],
               }}
               className="rounded-[2.5rem] border border-white/10 bg-white/[0.02] p-10 shadow-[0_30px_100px_-60px_rgba(74,222,128,0.45)] backdrop-blur"
@@ -59,14 +62,14 @@ const TechStackSection = () => {
                   return (
                     <motion.div
                       key={item.id}
-                      initial={{ opacity: 0, y: 24 }}
+                      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.4 }}
                       transition={{
-                        duration: 0.5,
-                        delay: index * 0.05,
+                        duration: shouldReduceMotion ? 0.18 : 0.5,
+                        delay: shouldReduceMotion ? 0 : index * 0.06,
                       }}
-                      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_24px_80px_-60px_rgba(74,222,128,0.5)] transition hover:border-emerald-400/40 hover:bg-emerald-400/5"
+                      className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-6 shadow-[0_24px_80px_-60px_rgba(74,222,128,0.5)] transition hover:border-emerald-400/40 hover:bg-emerald-400/5"
                     >
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-4">
@@ -82,18 +85,24 @@ const TechStackSection = () => {
                             </p>
                           </div>
                         </div>
-                        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-white/70">
-                          {item.experience}
-                        </span>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span
+                              tabIndex={0}
+                              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-white/70 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-slate-950"
+                              aria-label={`${item.name} experience details`}
+                            >
+                              {item.experience}
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent className="max-w-xs text-left text-slate-100">
+                            {item.level} &mdash; {item.description}
+                          </TooltipContent>
+                        </Tooltip>
                       </div>
                       <p className="mt-5 text-sm leading-relaxed text-slate-300">
                         {item.description}
                       </p>
-                      <div className="pointer-events-none absolute inset-x-4 bottom-4 flex justify-end opacity-0 transition duration-300 group-hover:opacity-100">
-                        <div className="max-w-xs rounded-2xl border border-white/20 bg-slate-950/95 px-4 py-3 text-xs text-slate-100 shadow-lg shadow-emerald-200/20">
-                          {item.description}
-                        </div>
-                      </div>
                     </motion.div>
                   );
                 })}

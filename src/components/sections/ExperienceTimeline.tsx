@@ -1,13 +1,59 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Calendar, Download, MapPin } from "lucide-react";
 
 import { experiences } from "@/data/portfolio";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { trackEvent } from "@/lib/analytics";
 
 const ExperienceTimeline = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.16,
+      },
+    },
+  };
+
+  const articleVariants = {
+    hidden: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : 32,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0.25 : 0.6,
+        ease: [0.25, 1, 0.5, 1],
+      },
+    },
+  };
+
+  const highlightVariants = {
+    hidden: {
+      opacity: 0,
+      y: shouldReduceMotion ? 0 : 16,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0.2 : 0.4,
+        ease: [0.25, 1, 0.5, 1],
+      },
+    },
+  };
+
+  const handleCvDownload = () => {
+    void trackEvent("download_cv", { location: "experience_sidebar" });
+  };
+
   return (
     <section
       id="experience"
@@ -23,7 +69,7 @@ const ExperienceTimeline = () => {
               Leading teams to craft resilient, human-centered product surfaces.
             </h2>
             <p className="mt-4 text-base text-slate-300">
-              Over the last decade, I&apos;ve bridged engineering and UX—shipping
+              Over the last decade, I&apos;ve bridged engineering and UX&mdash;shipping
               enterprise platforms, design systems, and motion-rich experiences
               that scale globally.
             </p>
@@ -31,7 +77,12 @@ const ExperienceTimeline = () => {
               asChild
               className="mt-8 w-full justify-center bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-cyan-500/30"
             >
-              <a href="/Rafi_Mufadhal_Difany_CV.pdf" target="_blank" rel="noreferrer">
+              <a
+                href="/Rafi_Mufadhal_Difany_CV.pdf"
+                target="_blank"
+                rel="noreferrer"
+                onClick={handleCvDownload}
+              >
                 <Download className="mr-2 size-4" />
                 Download CV
               </a>
@@ -40,18 +91,17 @@ const ExperienceTimeline = () => {
         </aside>
         <div className="relative flex-1">
           <div className="absolute inset-y-0 left-[11px] hidden w-px bg-gradient-to-b from-white/40 via-white/10 to-transparent sm:block" />
-          <div className="space-y-14">
-            {experiences.map((experience, index) => (
+          <motion.div
+            className="space-y-14"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.3, once: true }}
+            variants={containerVariants}
+          >
+            {experiences.map((experience) => (
               <motion.article
                 key={experience.id}
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                  ease: [0.25, 1, 0.5, 1],
-                }}
-                viewport={{ once: true, amount: 0.4 }}
+                variants={articleVariants}
                 className="relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 shadow-[0_24px_80px_-60px_rgba(56,189,248,0.6)] backdrop-blur"
               >
                 <div className="absolute -left-3.5 top-10 hidden size-3 rounded-full border border-cyan-300 bg-slate-950 shadow-[0_0_20px_rgba(59,130,246,0.6)] sm:flex" />
@@ -75,13 +125,14 @@ const ExperienceTimeline = () => {
                   </h3>
                   <ul className="space-y-3 text-sm text-slate-300">
                     {experience.highlights.map((highlight) => (
-                      <li
+                      <motion.li
                         key={highlight}
+                        variants={highlightVariants}
                         className="flex items-start gap-3 rounded-2xl border border-white/5 bg-white/[0.01] p-4 transition hover:border-cyan-400/40 hover:bg-cyan-500/5"
                       >
                         <span className="mt-1 flex size-1.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400" />
                         <span>{highlight}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -99,7 +150,7 @@ const ExperienceTimeline = () => {
                 </div>
               </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

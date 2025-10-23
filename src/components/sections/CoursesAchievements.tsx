@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 import { courses } from "@/data/portfolio";
@@ -16,6 +16,8 @@ import {
 import { Button } from "@/components/ui/Button";
 
 const CoursesAchievementsSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section
       id="courses"
@@ -40,11 +42,14 @@ const CoursesAchievementsSection = () => {
           {courses.map((course, index) => (
             <motion.div
               key={course.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
+              transition={{
+                duration: shouldReduceMotion ? 0.2 : 0.55,
+                delay: shouldReduceMotion ? 0 : index * 0.08,
+              }}
+              whileHover={shouldReduceMotion ? undefined : { y: -4 }}
               className="h-full"
             >
               <Card className="flex h-full flex-col overflow-hidden rounded-[2rem] border-white/10 bg-slate-950/70 backdrop-blur transition hover:border-purple-400/40 hover:bg-purple-500/[0.07]">

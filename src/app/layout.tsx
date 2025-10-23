@@ -1,19 +1,30 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 import { Toaster } from "@/components/ui/Toaster";
+import { AppProviders } from "@/components/providers/AppProviders";
 
-const firaCode = Fira_Code({
-  variable: "--font-fira-code",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Rafi Mufadhal Difany — Senior Frontend Engineer & UX Writer",
   description:
     "Portfolio of Rafi Mufadhal Difany, a senior frontend engineer crafting motion-rich experiences with Next.js, TypeScript, Tailwind CSS, shadcn/ui, and Framer Motion.",
+  metadataBase: new URL("https://rafi-portfolio.dev"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Rafi Mufadhal Difany — Senior Frontend Engineer & UX Writer",
     description:
@@ -35,12 +46,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${firaCode.variable} min-h-screen bg-background text-foreground antialiased`}
-      >
-        {children}
-        <Toaster />
+    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable}`}>
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        <AppProviders>
+          {children}
+          <Toaster />
+        </AppProviders>
       </body>
     </html>
   );
